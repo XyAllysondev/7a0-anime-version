@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7 a 0 — Anime Edition</title>
+  <meta name="description" content="Monte o time dos seus personagens favoritos de anime e lute para fazer 7 a 0! Partida rápida, torneio, multiplayer e muito mais." />
+  <meta name="keywords" content="anime, jogo de anime, luta de anime, futebol anime, 7 a 0, naruto, dragon ball, one piece, jogo online, anime game" />
+  <meta property="og:title" content="7 a 0 — Anime Edition" />
+  <meta property="og:description" content="Monte o time dos seus personagens favoritos de anime e lute para fazer 7 a 0!" />
+  <meta property="og:type" content="website" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Russo+One&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="Gemini_Generated_Image_24o8m024o8m024o8.png" />
+  <link rel="stylesheet" href="css/style.css?v=9" />
+</head>
+<body>
+
+<header id="app-header">
+  <button id="btn-back" class="btn-back" onclick="goBack()" style="display:none">← Voltar</button>
+  <div id="header-escolha-timer" class="header-escolha-timer" style="display:none">
+    <div class="header-timer-ring" id="header-timer-ring" style="--progress:1">
+      <span id="header-timer-num">15</span>
+    </div>
+  </div>
+  <div class="logo">7<span>–:</span>0 <span class="logo-sub">Anime Edition</span></div>
+  <div id="header-page-title" class="header-page-title"></div>
+  <button class="btn-perfil-header" id="btn-perfil-header" onclick="abrirAuthOuPerfil()" title="Entrar / Criar conta">👤</button>
+  <button class="btn-home" id="btn-home" onclick="navigate('pg-home')" title="Início" style="display:none">🏠</button>
+  <button class="btn-theme" id="btn-theme" onclick="toggleTheme()" title="Alternar tema"></button>
+</header>
+
+
+<div class="bg-orbs" aria-hidden="true">
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
+  <div class="bg-orb bg-orb-4"></div>
+</div>
+
+<div id="pages-wrap">
+
+  <!-- ══ PAGE: HOME ══ -->
+  <div class="app-page active" id="pg-home">
+    <div class="hero">
+      <div class="hero-badge">⚡ Monte. Lute. Domine.</div>
+      <div class="hero-score">7<span>–:0</span></div>
+      <div class="hero-title">Anime dos Sonhos</div>
+      <p class="hero-sub">Role o dado, monte o elenco dos seus sonhos e faça 7 a 0 — ou encare um torneio completo!</p>
+      <div class="hero-deco" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="mode-grid">
+      <div class="mode-card" onclick="iniciarPartidaRapida()">
+        <div class="mode-icon">⚡</div>
+        <div class="mode-name">Partida Rápida</div>
+        <div class="mode-desc">Role o dado, escolha um craque e simule a partida</div>
+        <div class="mode-arrow">→</div>
+      </div>
+      <div class="mode-card" onclick="navigate('pg-t-setup','forward','Torneio')">
+        <div class="mode-icon">🏆</div>
+        <div class="mode-name">Torneio</div>
+        <div class="mode-desc">8 times, fase de grupos e mata-mata</div>
+        <div class="mode-arrow">→</div>
+      </div>
+      <div class="mode-card" onclick="abrirMontarTime()">
+        <div class="mode-icon">⚽</div>
+        <div class="mode-name">Montar Time</div>
+        <div class="mode-desc">Escolha 7 jogadores de qualquer anime</div>
+        <div class="mode-arrow">→</div>
+      </div>
+      <div class="mode-card" onclick="abrirMultiplayer()">
+        <div class="mode-icon">🎮</div>
+        <div class="mode-name">Multiplayer</div>
+        <div class="mode-desc">Desafie um amigo com código de sala</div>
+        <div class="mode-arrow">→</div>
+      </div>
+    </div>
+    <footer class="home-footer">
+      <span>© 2025 7 a 0 — Anime Edition</span>
+      <span class="home-footer-sep">·</span>
+      <button class="home-footer-link" onclick="navigate('pg-privacidade','forward','Privacidade')">Política de Privacidade</button>
+      <span class="home-footer-sep">·</span>
+      <button class="home-footer-link" onclick="abrirAmigos()">Amigos</button>
+    </footer>
+  </div>
+
+  <!-- ══ PAGE: POLÍTICA DE PRIVACIDADE ══ -->
+  <div class="app-page" id="pg-privacidade">
+    <div class="privacy-wrap">
+      <div class="privacy-header">
+        <div class="privacy-icon">🔒</div>
+        <h1 class="privacy-title">Política de Privacidade</h1>
+        <p class="privacy-updated">Última atualização: junho de 2025</p>
+      </div>
+
+      <div class="privacy-card">
+        <h2>1. Sobre o Jogo</h2>
+        <p>7 a 0 — Anime Edition ("o Jogo") é um jogo de navegador gratuito, sem fins comerciais, voltado ao entretenimento. Nenhuma informação pessoal é exigida para jogar nos modos Partida Rápida, Torneio ou Montar Time.</p>
+      </div>
+
+      <div class="privacy-card">
+        <h2>2. Dados Coletados</h2>
+        <p>O Jogo coleta o mínimo possível de dados:</p>
+        <ul>
+          <li><strong>E-mail e senha</strong> — obrigatórios apenas para criar um Perfil de Jogador (funcionalidade opcional). Os dados são armazenados com segurança pelo Firebase Authentication (Google LLC) e nunca são acessados diretamente por nós.</li>
+          <li><strong>Nome de apelido (nickname) e nome do time</strong> — fornecidos voluntariamente ao criar ou editar o perfil.</li>
+          <li><strong>Estatísticas de partida</strong> — vitórias, derrotas, gols e conquistas, vinculadas ao seu perfil e armazenadas no Firebase Realtime Database. Você pode excluir sua conta a qualquer momento.</li>
+          <li><strong>Mensagens de chat</strong> — trocadas entre amigos via Firebase. Armazenadas apenas enquanto o histórico for mantido.</li>
+          <li><strong>Dados da partida multiplayer</strong> — times escolhidos e resultado da partida, armazenados temporariamente para sincronização em tempo real. Excluídos ao término da sala.</li>
+          <li><strong>Preferência de tema</strong> — claro ou escuro, salva localmente via <code>localStorage</code>. Nunca enviada a servidores.</li>
+        </ul>
+      </div>
+
+      <div class="privacy-card">
+        <h2>3. Perfil de Jogador e Autenticação</h2>
+        <p>A criação de Perfil de Jogador é <strong>totalmente opcional</strong>. Os modos Partida Rápida, Torneio e Montar Time não exigem nenhum cadastro. Ao criar um perfil, você concorda que seu e-mail seja usado exclusivamente para autenticação — não o utilizamos para marketing ou comunicações não solicitadas. Você pode excluir seu perfil e todos os dados associados a qualquer momento entrando em contato pelo e-mail abaixo.</p>
+      </div>
+
+      <div class="privacy-card">
+        <h2>4. O Que Não Coletamos</h2>
+        <ul>
+          <li>Nome completo, telefone ou documentos de identidade</li>
+          <li>Localização geográfica</li>
+          <li>Dados de pagamento (o Jogo é 100% gratuito)</li>
+          <li>Cookies de rastreamento ou publicidade</li>
+        </ul>
+      </div>
+
+      <div class="privacy-card">
+        <h2>5. Firebase Realtime Database</h2>
+        <p>O modo Multiplayer utiliza o <strong>Firebase Realtime Database</strong> (Google LLC) para sincronizar as salas de jogo em tempo real. Os dados de sala são transitórios: criados no início da partida e removidos ao final. O Firebase pode processar metadados técnicos (como endereço IP) conforme a <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Política de Privacidade do Firebase</a>.</p>
+      </div>
+
+      <div class="privacy-card">
+        <h2>6. Cookies e Armazenamento Local</h2>
+        <p>O Jogo não utiliza cookies. A única informação salva localmente é a preferência de tema (claro/escuro), via <code>localStorage</code> do navegador. Você pode limpar essa informação nas configurações do seu navegador a qualquer momento.</p>
+      </div>
+
+      <div class="privacy-card">
+        <h2>7. Crianças</h2>
+        <p>O Jogo não coleta conscientemente dados de crianças menores de 13 anos. Por não exigir cadastro, qualquer pessoa pode jogar os modos offline sem fornecer nenhum dado. No modo Multiplayer, o nickname inserido não é armazenado de forma permanente.</p>
+      </div>
+
+      <div class="privacy-card">
+        <h2>8. Direitos do Usuário</h2>
+        <p>Como praticamente nenhum dado pessoal é coletado ou armazenado permanentemente, não há perfil seu para acessar, corrigir ou excluir. Se tiver dúvidas, entre em contato pelo e-mail abaixo.</p>
+      </div>
+
+      <div class="privacy-card">
+        <h2>9. Alterações nesta Política</h2>
+        <p>Esta política pode ser atualizada a qualquer momento. A data de "Última atualização" no topo sempre refletirá a versão mais recente.</p>
+      </div>
+
+      <div class="privacy-card">
+        <h2>10. Contato</h2>
+        <p>Dúvidas sobre privacidade? Entre em contato: <strong>allysonfulldev@gmail.com</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE: MONTAR TIME ══ -->
+  <div class="app-page" id="pg-montar-time">
+    <div class="mf-formations-bar" id="mf-formations-bar"></div>
+    <div class="mf-main">
+
+      <!-- Campo -->
+      <div class="mf-field-section">
+        <div class="mf-legend">
+          <span class="mf-legend-item ataque">⚔️ Ataque</span>
+          <span class="mf-legend-item suporte">✨ Suporte</span>
+          <span class="mf-legend-item tank">🛡️ Tank</span>
+        </div>
+        <div class="mf-field">
+          <div class="mf-line-center"></div>
+          <div class="mf-circle-center"></div>
+          <div class="mf-box mf-box-top"></div>
+          <div class="mf-box mf-box-bot"></div>
+          <div class="mf-goal mf-goal-top"></div>
+          <div class="mf-goal mf-goal-bot"></div>
+          <div id="mf-positions"></div>
+        </div>
+        <button class="btn btn-secondary mf-roll-all" onclick="rolarTimeFormacao()">🎲 Rolar Time Inteiro</button>
+      </div>
+
+      <!-- Escalação -->
+      <div class="mf-squad-panel">
+        <div class="mf-squad-header">
+          <span class="mf-squad-title">Escalação</span>
+          <span class="mf-squad-count"><span id="mf-count">0</span>/7</span>
+        </div>
+        <div id="mf-squad-list"></div>
+        <div id="mf-squad-poder"></div>
+        <button class="btn btn-success btn-lg" id="btn-confirmar-formacao"
+                onclick="confirmarFormacao()" disabled style="width:100%;margin-top:0.75rem">
+          ✅ Ir pro Confronto →
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ══ PICKER DE PERSONAGEM ══ -->
+    <div class="mt-picker-overlay" id="mt-picker-overlay" onclick="fecharPickerFora(event)">
+      <div class="mt-picker-panel">
+        <div class="mt-picker-header">
+          <div class="mt-picker-titulo" id="mt-picker-titulo"></div>
+          <button class="mt-picker-close" onclick="fecharPicker()">✕</button>
+        </div>
+        <div class="mt-picker-search-bar">
+          <input class="mt-picker-input" id="mt-picker-input" type="text"
+                 placeholder="Buscar personagem..." oninput="filtrarPicker()" autocomplete="off">
+        </div>
+        <div class="mt-picker-unis" id="mt-picker-unis"></div>
+        <div class="mt-picker-actions">
+          <button class="btn btn-secondary mt-picker-random" onclick="rolarPosicaoAtual()">🎲 Sortear Aleatório</button>
+          <span class="mt-picker-count" id="mt-picker-count"></span>
+        </div>
+        <div class="mt-picker-grid" id="mt-picker-grid"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ PAGE: PARTIDA RÁPIDA — ESCOLHA DE FORMAÇÃO ══ -->
+  <div class="app-page" id="pg-pr-formacao">
+    <div class="section-title" style="margin-bottom:0.75rem"><span>Escolha sua Formação</span></div>
+    <p class="pr-form-subtitle">A formação define quantos Ataques, Suportes e Tanks você vai escolher</p>
+    <div class="pr-form-grid" id="pr-form-grid"></div>
+    <div style="text-align:center;margin-top:1.5rem">
+      <button class="btn btn-primary btn-lg" onclick="confirmarFormacaoPRInicio()" style="width:100%;max-width:460px">
+        ⚽ Começar Partida →
+      </button>
+    </div>
+  </div>
+
+  <!-- ══ PAGE: PARTIDA — SORTEIO ══ -->
+  <div class="app-page" id="pg-sorteio">
+    <div class="slot-progress" id="slot-progress" style="display:none">
+      <div class="slot-label">Escolhendo jogador <strong id="slot-num">1</strong>/7</div>
+      <div class="mini-team" id="mini-team"></div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><div class="step-label">Role — sai um universo e uma saga</div></div>
+      <div class="step-divider"></div>
+      <div class="step"><div class="step-num">02</div><div class="step-label">Escolha um craque daquele arco</div></div>
+      <div class="step-divider"></div>
+      <div class="step"><div class="step-num">03</div><div class="step-label">Simule — seu time faz 7 a 0?</div></div>
+    </div>
+    <div class="sorteio-card">
+      <div class="sorteio-result" id="sorteio-result">
+        <div class="universo-badge">
+          <span class="universo-emoji" id="universo-emoji"></span>
+          <span class="universo-nome" id="universo-nome"></span>
+        </div>
+        <div class="arco-label">Saga: <strong id="arco-nome"></strong></div>
+      </div>
+      <div class="sorteio-chances" id="sorteio-chances" style="display:none">
+        <div class="chances-pips" id="chances-pips"></div>
+        <div class="chances-label" id="chances-label"></div>
+      </div>
+      <button class="btn btn-primary btn-lg" id="btn-rolar" onclick="rolarDado()">🎲 Rolar o dado</button>
+      <div id="btn-swap-wrap" style="display:none;margin-top:1rem">
+        <button class="btn btn-secondary" id="btn-trocar-arco" onclick="trocarArco()" style="width:100%;margin-bottom:0.5rem">🔀 Trocar Arco</button>
+        <button class="btn btn-success btn-lg" style="width:100%" onclick="confirmarSorteio()">⚽ Escolher Time →</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ PAGE: PARTIDA — ESCOLHA DO CRAQUE ══ -->
+  <div class="app-page" id="pg-escolha">
+    <div class="escolha-saga-badge" id="escolha-saga-badge"></div>
+    <div class="section-title"><span>Escolha 1 personagem</span></div>
+    <div class="personagens-grid" id="personagens-grid"></div>
+    <div style="margin-top:1.25rem;text-align:center">
+      <button class="btn btn-success btn-lg" id="btn-confirmar" onclick="confirmarEscolha()" disabled>✅ Confirmar →</button>
+    </div>
+  </div>
+
+  <!-- ══ PAGE: PARTIDA — CONFRONTO ══ -->
+  <div class="app-page" id="pg-confronto">
+    <div class="section-title"><span>Elencos definidos</span> — hora de simular</div>
+    <div class="times-wrapper">
+      <div class="time-card time-a">
+        <div class="time-header">⚔️ Seu Time</div>
+        <div id="lista-time-a"></div>
+      </div>
+      <div class="vs-center"><div class="vs-text">VS</div></div>
+      <div class="time-card time-b">
+        <div class="time-header">🛡️ Adversário</div>
+        <div id="lista-time-b"></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:1.5rem">
+      <button class="btn btn-primary btn-lg" id="btn-simular" onclick="simularJogo()">⚡ Simular jogo</button>
+    </div>
+  </div>
+
+  <!-- ══ PAGE: PARTIDA — SIMULAÇÃO ══ -->
+  <div class="app-page" id="pg-simulacao">
+    <div class="placar-box">
+      <div class="placar-row">
+        <div class="placar-time"><div class="placar-nome">Seu Time</div><div class="placar-num" id="placar-a">0</div></div>
+        <div class="placar-sep">×</div>
+        <div class="placar-time"><div class="placar-nome">Adversário</div><div class="placar-num" id="placar-b">0</div></div>
+      </div>
+    </div>
+    <div class="rounds-log" id="rounds-log"></div>
+    <div class="resultado-banner" id="resultado-banner">
+      <div class="resultado-emoji" id="resultado-emoji"></div>
+      <div class="resultado-titulo" id="resultado-titulo"></div>
+      <div class="resultado-sub" id="resultado-sub"></div>
+      <button class="btn btn-secondary" onclick="resetarJogo()" style="margin-top:0.5rem">🎲 Jogar de novo</button>
+    </div>
+  </div>
+
+  <!-- ══ PAGE: TORNEIO — SETUP ══ -->
+  <div class="app-page" id="pg-t-setup">
+    <div class="sorteio-card" style="padding:3rem 2rem">
+      <div style="font-size:3.5rem;margin-bottom:0.75rem">🏆</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:0.05em;margin-bottom:0.5rem">Torneio Anime</div>
+      <p style="color:var(--muted);font-size:14px;max-width:380px;margin:0 auto;line-height:1.6">8 times sorteados dos universos anime. Fase de grupos + mata-mata. Só um campeão!</p>
+      <div class="torneio-info-grid">
+        <div class="torneio-info-item"><span>8</span>Times</div>
+        <div class="torneio-info-item"><span>2</span>Grupos</div>
+        <div class="torneio-info-item"><span>12</span>Partidas</div>
+        <div class="torneio-info-item"><span>1</span>Campeão</div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="iniciarSorteioTorneio()">⚡ Monte seu Time →</button>
+    </div>
+  </div>
+
+  <!-- ══ PAGE: TORNEIO — GRUPOS ══ -->
+  <div class="app-page" id="pg-t-grupos">
+    <div class="section-title" style="margin-bottom:1.5rem"><span>Fase de Grupos</span></div>
+    <div class="grupos-grid">
+      <div class="grupo-card">
+        <div class="grupo-header">Grupo A</div>
+        <div id="standings-A"></div>
+        <div id="matches-A"></div>
+      </div>
+      <div class="grupo-card">
+        <div class="grupo-header">Grupo B</div>
+        <div id="standings-B"></div>
+        <div id="matches-B"></div>
+      </div>
+    </div>
+    <div style="text-align:center" id="grupos-actions">
+      <button class="btn btn-primary btn-lg" onclick="simularTodosGrupos()">⚡ Simular Fase de Grupos</button>
+    </div>
+  </div>
+
+  <!-- ══ PAGE: TORNEIO — KNOCKOUT ══ -->
+  <div class="app-page" id="pg-t-knockout">
+    <div class="section-title" style="margin-bottom:1.5rem"><span>Mata-Mata</span></div>
+    <div class="bracket-wrapper">
+      <div class="bracket-round-label">Semi-Finais</div>
+      <div class="bracket-matches-row">
+        <div id="bracket-sf1" class="bracket-match">
+          <div class="bm-teams" id="bm-sf1-teams"></div>
+          <div class="bm-action"><button class="btn btn-primary" id="btn-sf1" onclick="simularKO('sf1')">Simular</button></div>
+        </div>
+        <div id="bracket-sf2" class="bracket-match">
+          <div class="bm-teams" id="bm-sf2-teams"></div>
+          <div class="bm-action"><button class="btn btn-primary" id="btn-sf2" onclick="simularKO('sf2')">Simular</button></div>
+        </div>
+      </div>
+      <div class="bracket-round-label">Final &amp; 3° Lugar</div>
+      <div class="bracket-matches-row">
+        <div id="bracket-final" class="bracket-match">
+          <div class="bm-teams" id="bm-final-teams"><div style="color:var(--muted);font-size:13px">Aguardando semi-finais...</div></div>
+          <div class="bm-action"><button class="btn btn-primary" id="btn-final" onclick="simularKO('final')" disabled>Simular</button></div>
+        </div>
+        <div id="bracket-third" class="bracket-match">
+          <div class="bm-teams" id="bm-third-teams"><div style="color:var(--muted);font-size:13px">Aguardando semi-finais...</div></div>
+          <div class="bm-action"><button class="btn btn-secondary" id="btn-third" onclick="simularKO('third')" disabled>Simular</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE: TORNEIO — CAMPEÃO ══ -->
+  <div class="app-page" id="pg-t-campeao">
+    <div class="champion-banner">
+      <div class="champion-trophy">🏆</div>
+      <div class="champion-label">Campeão do Torneio</div>
+      <div class="champion-name" id="champion-name"></div>
+      <div class="champion-arc" id="champion-arc"></div>
+      <div class="podium-row" id="podium-row"></div>
+      <button class="btn btn-secondary" onclick="resetarTorneio()">🔄 Novo Torneio</button>
+    </div>
+  </div>
+
+  <!-- ══ PAGE: FORMAÇÃO ══ -->
+  <div class="app-page" id="pg-formacao">
+    <div class="mf-formations-bar" id="fr-formations-bar"></div>
+
+    <div class="fr-instrucao">
+      <span class="fr-instrucao-icon">↕️</span>
+      Toque em dois jogadores para trocar de posição
+    </div>
+
+    <div class="mf-field-section" style="margin-bottom:0.75rem">
+      <div class="mf-field">
+        <div class="mf-line-center"></div>
+        <div class="mf-circle-center"></div>
+        <div class="mf-box mf-box-top"></div>
+        <div class="mf-box mf-box-bot"></div>
+        <div class="mf-goal mf-goal-top"></div>
+        <div class="mf-goal mf-goal-bot"></div>
+        <div id="fr-positions"></div>
+      </div>
+    </div>
+
+    <div class="mf-squad-panel" style="margin-bottom:1rem">
+      <div class="mf-squad-header">
+        <span class="mf-squad-title">Escalação</span>
+        <span class="mf-squad-count">7/7</span>
+      </div>
+      <div id="fr-squad-list"></div>
+    </div>
+
+    <div style="text-align:center">
+      <button class="btn btn-success btn-lg" style="width:100%" onclick="confirmarFormacaoPR()">
+        ✅ Confirmar Formação →
+      </button>
+    </div>
+  </div>
+
+  <!-- ══ PAGE: MULTIPLAYER — LOBBY ══ -->
+  <div class="app-page" id="pg-mp-lobby">
+    <div class="mp-lobby-card">
+      <div class="mp-lobby-icon">🎮</div>
+      <div class="mp-lobby-title">Multiplayer</div>
+
+      <div class="mp-rejoin-banner" id="mp-rejoin-banner" style="display:none">
+        <div class="mp-rejoin-info">
+          <span class="mp-rejoin-icon">⚡</span>
+          <span>Sala ativa: <strong id="mp-rejoin-codigo">——</strong></span>
+        </div>
+        <div class="mp-rejoin-btns">
+          <button class="btn btn-primary btn-sm" onclick="reconectarSala()">Reconectar</button>
+          <button class="btn btn-secondary btn-sm" onclick="cancelarReconexao()">Ignorar</button>
+        </div>
+      </div>
+
+      <div class="mp-modo-toggle">
+        <button class="mp-modo-btn active" id="mp-modo-1v1" onclick="_setModoMP('1v1')">⚔️ 1v1</button>
+        <button class="mp-modo-btn"        id="mp-modo-2v2" onclick="_setModoMP('2v2')">🤝 2v2</button>
+      </div>
+      <p class="mp-modo-desc" id="mp-modo-desc">Desafie um amigo em batalha 1 contra 1!</p>
+
+      <div class="mp-input-group">
+        <label>Seu nome</label>
+        <input type="text" id="mp-nome-input" placeholder="Ex: Naruto_Fan" maxlength="20" autocomplete="off" />
+      </div>
+
+      <button class="btn btn-primary btn-lg" id="mp-btn-criar" onclick="criarSala()" style="width:100%">🏠 Criar Sala</button>
+
+      <div class="mp-divider">ou entre em uma sala</div>
+
+      <div class="mp-input-group">
+        <label>Código da sala</label>
+        <input type="text" id="mp-codigo-input" class="code-input" placeholder="ABC123" maxlength="6" autocomplete="off" />
+      </div>
+
+      <button class="btn btn-secondary btn-lg" id="mp-btn-entrar" onclick="entrarSala()" style="width:100%">🔗 Entrar na Sala</button>
+
+      <div class="mp-erro" id="mp-erro"></div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE: MULTIPLAYER — SALA ══ -->
+  <div class="app-page" id="pg-mp-sala">
+    <div class="mp-sala-header">
+      <div class="mp-sala-header-row">
+        <span class="mp-sala-code-label">Código da sala</span>
+        <span class="mp-sala-modo-tag" id="mp-sala-modo-tag">1v1</span>
+      </div>
+      <div class="mp-sala-code-row">
+        <span class="mp-sala-codigo" id="mp-sala-codigo">------</span>
+        <button class="mp-copy-btn" onclick="copiarCodigo()" title="Copiar código">📋</button>
+      </div>
+    </div>
+
+    <div id="mp-sala-status"></div>
+
+    <div style="text-align:center;margin-top:1.5rem">
+      <button class="btn btn-primary btn-lg" id="mp-btn-montar" onclick="iniciarMontarTimeMP()" style="display:none;width:100%">
+        ⚽ Montar Meu Time →
+      </button>
+    </div>
+
+    <div style="text-align:center;margin-top:0.75rem">
+      <button class="btn btn-secondary" onclick="sairDaSala()">🚪 Sair da sala</button>
+    </div>
+  </div>
+
+  <!-- ══ PAGE: MULTIPLAYER — CONFRONTO ══ -->
+  <div class="app-page" id="pg-mp-confronto">
+    <div class="section-title"><span>Times definidos</span> — hora de simular</div>
+
+    <div class="times-wrapper" id="mp-confronto-card">
+      <div class="time-card time-a">
+        <div class="time-header">⭐ <span id="mp-confronto-title-eu">Seu Time</span>
+          <span class="mp-result-badge" id="mp-badge-eu" style="display:none"></span>
+        </div>
+        <div id="mp-lista-time-eu"></div>
+      </div>
+      <div class="vs-center"><div class="vs-text">VS</div></div>
+      <div class="time-card time-b">
+        <div class="time-header">⚔️ <span id="mp-confronto-title-adv">Adversário</span>
+          <span class="mp-result-badge" id="mp-badge-adv" style="display:none"></span>
+        </div>
+        <div id="mp-lista-time-adv"></div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:1.5rem">
+      <button class="btn btn-primary btn-lg" id="mp-btn-simular" onclick="simularJogoMP()">⚡ Simular Partida</button>
+      <div class="mp-aguard-simul" id="mp-aguard-simul" style="display:none">⏳ Aguardando o adversário simular a partida…</div>
+    </div>
+
+    <div class="placar-box" id="mp-placar-box" style="display:none;margin-top:1.5rem">
+      <div class="placar-row">
+        <div class="placar-time">
+          <div class="placar-nome" id="mp-placar-nome-eu">Eu</div>
+          <div class="placar-num" id="mp-placar-a">0</div>
+        </div>
+        <div class="placar-sep">×</div>
+        <div class="placar-time">
+          <div class="placar-nome" id="mp-placar-nome-adv">Adversário</div>
+          <div class="placar-num" id="mp-placar-b">0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rounds-log" id="mp-rounds-log"></div>
+
+    <div class="resultado-banner" id="mp-resultado-banner">
+      <div class="resultado-emoji"  id="mp-resultado-emoji"></div>
+      <div class="resultado-titulo" id="mp-resultado-titulo"></div>
+      <div class="resultado-sub"    id="mp-resultado-sub"></div>
+      <button class="btn btn-gold" id="mp-btn-compartilhar" onclick="compartilharResultadoMP()" style="margin-top:0.5rem;display:none">📤 Compartilhar resultado</button>
+      <button class="btn btn-secondary" onclick="sairDaSala()" style="margin-top:0.5rem">🔄 Jogar de novo</button>
+    </div>
+  </div>
+
+  <!-- ══ MODAL: SHARE CARD ══ -->
+  <div class="mp-share-overlay" id="mp-share-modal" style="display:none" onclick="if(event.target===this)fecharShareCard()">
+    <div class="mp-share-card">
+      <button class="sc-close-btn" onclick="fecharShareCard()">✕</button>
+
+      <div class="sc-header">
+        <div class="sc-logo">7<span>–</span>0</div>
+        <div class="sc-game-title">Anime Version</div>
+        <div class="sc-modo-tag" id="sc-modo-tag">1V1</div>
+      </div>
+
+      <div class="sc-versus">
+        <div class="sc-player sc-player-a">
+          <div class="sc-player-name" id="sc-nome-eu">—</div>
+          <div class="sc-player-score" id="sc-score-eu">0</div>
+          <div class="sc-result" id="sc-result-eu"></div>
+        </div>
+        <div class="sc-sep">×</div>
+        <div class="sc-player sc-player-b">
+          <div class="sc-player-name" id="sc-nome-adv">—</div>
+          <div class="sc-player-score" id="sc-score-adv">0</div>
+          <div class="sc-result" id="sc-result-adv"></div>
+        </div>
+      </div>
+
+      <div class="sc-footer-info" id="sc-rounds-info"></div>
+
+      <div class="sc-actions">
+        <button class="btn btn-gold btn-lg sc-share-btn" id="sc-btn-share" onclick="compartilharTextoMP()">📤 Compartilhar</button>
+        <button class="btn btn-secondary" onclick="fecharShareCard()">✕ Fechar</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══ PAGE: PERFIL ══ -->
+  <div class="app-page" id="pg-perfil">
+    <div class="perfil-wrap">
+      <div class="perfil-header-card">
+        <div class="perfil-avatar-big" id="perfil-avatar">⚽</div>
+        <div class="perfil-info-main">
+          <div class="perfil-nickname" id="perfil-nickname">Jogador</div>
+          <div class="perfil-teamname" id="perfil-teamname">Meu Time</div>
+          <div class="perfil-email-display" id="perfil-email-display"></div>
+        </div>
+        <div class="perfil-acoes">
+          <button class="btn btn-secondary btn-sm" onclick="abrirEditarPerfil()">✏️ Editar</button>
+          <button class="btn btn-secondary btn-sm" onclick="abrirAmigos()">👥 Amigos</button>
+          <button class="btn btn-danger btn-sm"    onclick="fazerLogout()">🚪 Sair</button>
+        </div>
+      </div>
+
+      <div class="perfil-tabs">
+        <button id="ptab-btn-stats"      class="ptab-btn active" onclick="mudarTabPerfil('stats')">📊 Estatísticas</button>
+        <button id="ptab-btn-conquistas" class="ptab-btn"        onclick="mudarTabPerfil('conquistas')">🏅 Conquistas</button>
+        <button id="ptab-btn-historico"  class="ptab-btn"        onclick="mudarTabPerfil('historico')">📋 Histórico</button>
+      </div>
+
+      <!-- TAB: STATS -->
+      <div id="ptab-stats">
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-val" id="stat-wins">0</div><div class="stat-label">Vitórias</div></div>
+          <div class="stat-card"><div class="stat-val" id="stat-losses">0</div><div class="stat-label">Derrotas</div></div>
+          <div class="stat-card"><div class="stat-val" id="stat-draws">0</div><div class="stat-label">Empates</div></div>
+          <div class="stat-card"><div class="stat-val" id="stat-matches">0</div><div class="stat-label">Partidas</div></div>
+          <div class="stat-card"><div class="stat-val" id="stat-winrate">—</div><div class="stat-label">Aproveit.</div></div>
+          <div class="stat-card"><div class="stat-val" id="stat-goals-f">0</div><div class="stat-label">Gols Feitos</div></div>
+          <div class="stat-card"><div class="stat-val" id="stat-goals-a">0</div><div class="stat-label">Gols Sofridos</div></div>
+          <div class="stat-card"><div class="stat-val" id="stat-streak">0</div><div class="stat-label">Melhor Sequência</div></div>
+          <div class="stat-card"><div class="stat-val" id="stat-perfect">0</div><div class="stat-label">Goleadas 7×0</div></div>
+          <div class="stat-card"><div class="stat-val" id="stat-playtime">0m</div><div class="stat-label">Tempo de Jogo</div></div>
+        </div>
+      </div>
+
+      <!-- TAB: CONQUISTAS -->
+      <div id="ptab-conquistas" style="display:none">
+        <div class="conquistas-grid" id="conquistas-grid"></div>
+      </div>
+
+      <!-- TAB: HISTÓRICO -->
+      <div id="ptab-historico" style="display:none">
+        <div id="historico-lista"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE: AMIGOS ══ -->
+  <div class="app-page" id="pg-amigos">
+    <div class="amigos-wrap">
+      <div class="amigos-add-bar">
+        <input type="email" id="add-amigo-email" class="amigos-input" placeholder="E-mail do amigo..." autocomplete="off" onkeydown="if(event.key==='Enter')adicionarAmigo()">
+        <button class="btn btn-primary" onclick="adicionarAmigo()">➕ Adicionar</button>
+      </div>
+      <div class="amigos-erro" id="add-amigo-erro"></div>
+
+      <div class="amigos-section-title" id="amigos-pendentes-titulo" style="display:none">⏳ Pedidos Pendentes</div>
+      <div id="amigos-pendentes"></div>
+
+      <div class="amigos-section-title">👥 Meus Amigos</div>
+      <div id="amigos-lista"></div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE: CHAT ══ -->
+  <div class="app-page" id="pg-chat">
+    <div class="chat-wrap">
+      <div class="chat-header"><span id="chat-titulo">Chat</span></div>
+      <div class="chat-msgs" id="chat-msgs"></div>
+      <div class="chat-input-bar">
+        <input type="text" id="chat-input" class="chat-input" placeholder="Digite uma mensagem..." maxlength="400" onkeydown="chatEnterKey(event)" autocomplete="off">
+        <button class="btn btn-primary chat-send-btn" onclick="enviarMensagem()">➤</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- #pages-wrap -->
+
+<!-- ══ AUTH OVERLAY ══ -->
+<div class="auth-overlay" id="auth-overlay">
+  <div class="auth-modal">
+    <button class="auth-close" onclick="fecharAuth()">✕</button>
+    <div class="auth-logo">7<span>–:0</span></div>
+    <div class="auth-tabs">
+      <button id="auth-tab-login"    class="auth-tab active" onclick="mostrarAuthTab('login')">Entrar</button>
+      <button id="auth-tab-register" class="auth-tab"        onclick="mostrarAuthTab('register')">Criar Conta</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="auth-form-login" style="display:flex;flex-direction:column;gap:0.75rem">
+      <input type="email"    id="auth-email" class="auth-input" placeholder="E-mail" autocomplete="email"     onkeydown="authEnterKeyLogin(event)">
+      <input type="password" id="auth-senha" class="auth-input" placeholder="Senha"  autocomplete="current-password" onkeydown="authEnterKeyLogin(event)">
+      <button class="btn btn-primary auth-submit" id="auth-btn-login" onclick="fazerLogin()">Entrar</button>
+    </div>
+
+    <!-- CADASTRO -->
+    <div id="auth-form-register" style="display:none;flex-direction:column;gap:0.75rem">
+      <input type="text"     id="auth-nickname"  class="auth-input" placeholder="Apelido (2–20 caracteres)" autocomplete="username"      onkeydown="authEnterKeyReg(event)">
+      <input type="email"    id="auth-email-reg" class="auth-input" placeholder="E-mail"                    autocomplete="email"          onkeydown="authEnterKeyReg(event)">
+      <input type="password" id="auth-senha-reg" class="auth-input" placeholder="Senha (mín. 6 caracteres)" autocomplete="new-password"  onkeydown="authEnterKeyReg(event)">
+      <button class="btn btn-primary auth-submit" id="auth-btn-register" onclick="fazerCadastro()">Criar Conta</button>
+    </div>
+
+    <div class="auth-erro" id="auth-erro"></div>
+  </div>
+</div>
+
+<!-- ══ EDIT PERFIL OVERLAY ══ -->
+<div class="auth-overlay" id="edit-perfil-overlay">
+  <div class="auth-modal">
+    <button class="auth-close" onclick="fecharEditarPerfil()">✕</button>
+    <div class="auth-logo" style="font-size:1.2rem;margin-bottom:1rem">✏️ Editar Perfil</div>
+    <div style="display:flex;flex-direction:column;gap:0.75rem">
+      <input type="text" id="edit-nickname" class="auth-input" placeholder="Apelido" maxlength="20">
+      <input type="text" id="edit-teamname" class="auth-input" placeholder="Nome do Time" maxlength="30">
+      <div class="edit-avatar-label">Escolha seu Avatar</div>
+      <div class="avatar-picker-grid" id="avatar-picker-grid"></div>
+      <button class="btn btn-primary auth-submit" onclick="salvarPerfil()">💾 Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ KO MODAL OVERLAY ══ -->
+<div class="ko-overlay" id="ko-overlay">
+  <div class="ko-modal">
+    <div class="ko-modal-label" id="ko-label"></div>
+    <div class="ko-modal-matchup" id="ko-matchup"></div>
+    <div class="ko-placar-box">
+      <div class="ko-placar-row">
+        <div class="ko-placar-side">
+          <div class="ko-placar-label" id="ko-name-a"></div>
+          <div class="ko-placar-num" id="ko-score-a">0</div>
+        </div>
+        <div class="ko-placar-sep">×</div>
+        <div class="ko-placar-side">
+          <div class="ko-placar-label" id="ko-name-b"></div>
+          <div class="ko-placar-num" id="ko-score-b">0</div>
+        </div>
+      </div>
+    </div>
+    <div class="ko-rounds-log" id="ko-rounds-log"></div>
+    <div style="text-align:center">
+      <button class="btn btn-secondary" id="ko-close-btn" onclick="fecharKOModal()" disabled>Fechar</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+<script src="js/database.js?v=8"></script>
+<script src="js/firebase.js?v=8"></script>
+<script src="js/utils.js?v=9"></script>
+<script src="js/profile.js?v=8"></script>
+<script src="js/auth.js?v=8"></script>
+<script src="js/social.js?v=8"></script>
+<script src="js/partida.js?v=8"></script>
+<script src="js/torneio.js?v=8"></script>
+<script src="js/multiplayer.js?v=10"></script>
+<script>document.addEventListener('DOMContentLoaded', function() { initAuth(); });</script>
+
+</body>
+</html>
